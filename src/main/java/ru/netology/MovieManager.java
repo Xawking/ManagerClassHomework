@@ -42,8 +42,14 @@ public class MovieManager {
     }
 
     public String[] findLastAddedMovies() {
-        String[] lastAddedMovies = new String[lastAddedLimit];
-        for (int i = 0; i < lastAddedLimit; i++) {
+        int resultLength;
+        if (movies.length < lastAddedLimit) {
+            resultLength = movies.length;
+        } else {
+            resultLength = lastAddedLimit;
+        }
+        String[] lastAddedMovies = new String[resultLength];
+        for (int i = 0; i < resultLength; i++) {
             lastAddedMovies[i] = movies[movies.length - 1 - i];
 
         }

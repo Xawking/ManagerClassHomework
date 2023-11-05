@@ -74,4 +74,18 @@ class MovieManagerTest {
 
     }
 
+    @Test
+    public void shouldShowMinLastAddedMovies() {
+        MovieManager manager = new MovieManager();
+
+
+        manager.addNewMovie("Отель \"Белград\"");
+        manager.addNewMovie("Джентльмены");
+        manager.addNewMovie("Человек-невидимка");
+        String[] expected = {"Человек-невидимка", "Джентльмены", "Отель \"Белград\""};
+        String[] actual = manager.findLastAddedMovies();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 }
