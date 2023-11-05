@@ -1,13 +1,14 @@
 package ru.netology;
 
 public class MovieManager {
-    private String[] movies = {
-            "Бладшот",
-            "Вперёд",
-            "Отель \"Белград\"",
-            "Джентльмены",
-            "Человек-невидимка",
-    };
+    private String[] movies = new String[0];
+    //           {
+    //           "Бладшот",
+    //           "Вперёд",
+    //           "Отель \"Белград\"",
+    //           "Джентльмены",
+    //           "Человек-невидимка",
+    //   };
     private int lastAddedLimit;
 
 
@@ -16,10 +17,14 @@ public class MovieManager {
     }
 
     public MovieManager(int setLastAddedLimit) {
-        if (setLastAddedLimit < 1){
+        if (setLastAddedLimit < 1) {
             setLastAddedLimit = 1;
         }
         this.lastAddedLimit = setLastAddedLimit;
+    }
+
+    public int getLastAddedLimit() {
+        return lastAddedLimit;
     }
 
     public void addNewMovie(String newMovie) {
@@ -38,7 +43,7 @@ public class MovieManager {
 
     public String[] findLastAddedMovies() {
         String[] lastAddedMovies = new String[lastAddedLimit];
-        for (int i = 0; i <lastAddedLimit ; i++) {
+        for (int i = 0; i < lastAddedLimit; i++) {
             lastAddedMovies[i] = movies[movies.length - 1 - i];
 
         }
